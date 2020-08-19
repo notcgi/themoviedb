@@ -8,33 +8,41 @@ use Illuminate\Support\Facades\Date;
 
 class Controller extends BaseController
 {
-    public function getMain(){
+    /**
+     * @param string $id
+     * @return array[]|false
+     */
+    public function getFilm(string $id='popular'){
         $client = new \GuzzleHttp\Client([
             'base_uri' => 'https://api.themoviedb.org/3/',
         ]);
         try {
             $response = $client->get(
-                'movie/popular',
+                request('search',false)?"search/movie":"movie/$id",
                 [
-                    'query' => ['api_key'=>config('app.tmdb_api')]
+                    'query' => [
+                        'api_key'=>config('app.tmdb_api'),
+                        'query'=>$id
+                    ]
                 ]
             );
         } catch (ClientException $e) {
             return ['errors'=>['detail'=>$e->getResponse()->getBody(), 'message'=>$e->getMessage()]];
         }
+
         $response = @json_decode($response->getBody()->getContents());
-        if (!$response or !$response->results) return false;
-        $response=collect($response->results)
+        if (!$response or !(@$response->results??@$response->title)) abort(400);
+        $response=collect(@$response->results ?? [$response])
             ->map(function ($film){
                 return [
                     'id'=>$film->id,
                     'title'=>$film->title,
-                    'poster_path'=>'https://image.tmdb.org/t/p/w500'.$film->poster_path,
-                    'release_date'=> (new \DateTime($film->release_date))->format('Y'),
+                    'poster_path'=>$film->poster_path,
+                    'popularity'=>$film->popularity,
+                    'overview'=>$film->overview,
+                    'release_date'=> @$film->release_date?(new \DateTime($film->release_date))->format('Y'):null,
                 ];
             });
-        dd($response);
-
-        return view('welcome');
+        return $response->toArray();
     }
 }

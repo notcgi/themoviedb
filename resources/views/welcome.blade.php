@@ -10,27 +10,20 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
         <!-- Styles -->
+        <link href="/css/app.css" rel="stylesheet">
         <style>
-            html, body{
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                margin: 0;
+            .card-columns {
+                column-count: 6;
             }
         </style>
     </head>
     <body>
     <header>
-
     </header>
     <div id="app">
-
-        <example-component></example-component>
+        <film-filter></film-filter>
     </div>
-    <footer>
-
-    </footer>
+    <footer></footer>
     <script src="{{ asset('js/app.js') }}"></script>
     </body>
 </html>
