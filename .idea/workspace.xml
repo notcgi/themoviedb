@@ -11,9 +11,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="27a021d1-21f1-4040-a14d-217d4a0d68a1" name="Default Changelist" comment="ready">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Controller.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/Films.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Films.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/Filter.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Filter.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -170,7 +171,7 @@
       <workItem from="1597843755111" duration="8913000" />
       <workItem from="1597854384909" duration="356000" />
       <workItem from="1597854864343" duration="952000" />
-      <workItem from="1597870555152" duration="8736000" />
+      <workItem from="1597870555152" duration="9073000" />
     </task>
     <task id="LOCAL-00001" summary="add vue&#10;add base api request">
       <created>1597851150548</created>
@@ -193,7 +194,14 @@
       <option name="project" value="LOCAL" />
       <updated>1597879454562</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="ready">
+      <created>1597880780834</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1597880780834</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -247,9 +255,9 @@
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
     <state x="341" y="164" key="SettingsEditor/0.0.1680.1050@0.0.1680.1050" timestamp="1597851130627" />
-    <state x="440" y="252" key="Vcs.Push.Dialog.v2" timestamp="1597879233733">
+    <state x="440" y="252" key="Vcs.Push.Dialog.v2" timestamp="1597880782938">
       <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="440" y="252" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1597879233733" />
+    <state x="440" y="252" key="Vcs.Push.Dialog.v2/0.0.1680.1050@0.0.1680.1050" timestamp="1597880782938" />
   </component>
 </project>

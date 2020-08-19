@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Date;
 class Controller extends BaseController
 {
     /**
-     * @param string $id
+     * @param string $id category or search query
      * @return array[]|false
      */
     public function getFilm(string $id='popular'){

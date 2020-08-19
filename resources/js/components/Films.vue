@@ -26,63 +26,63 @@
 </template>
 
 <script>
-    export default {
-        data () {
-            return {
-                films: null,
-                category: null,
-                active:false,
-                selected_films: [],
-                selected_films_id: [],
-            }
-        },
-        mounted() {
-            if (location.hash)
-                this.selected_films_id =location.hash.split('#')[1].split('&')
-            else if (localStorage.list)
-                this.selected_films_id = JSON.parse(localStorage.list);
+export default {
+    data () {
+        return {
+            films: null,
+            category: null,
+            active:false,
+            selected_films: [],
+            selected_films_id: [],
+        }
+    },
+    mounted() {
+        if (location.hash)
+            this.selected_films_id =location.hash.split('#')[1].split('&')
+        else if (localStorage.list)
+            this.selected_films_id = JSON.parse(localStorage.list);
 
-            if (this.selected_films){
-                this.selected_films_id.forEach(film =>
-                {
-                    axios
-                        .get('/api/films/' + film)
-                        .then(response => {
-                            this.selected_films.push(response.data[0])
-                        })
-                })
-            }
-        },
-        created() {
-            this.fetchData();
-        },
-        methods: {
-            fetchData(category='popular',search=false) {
+        if (this.selected_films){
+            this.selected_films_id.forEach(film =>
+            {
                 axios
-                    .get(`/api/films/${category}${search ? '?search=1' : ''}`)
+                    .get('/api/films/' + film)
                     .then(response => {
-                        this.films = response.data;
+                        this.selected_films.push(response.data[0])
                     })
-            },
-            addOrRemoveFilm(film,btn) {
-                let itemPos = this.selected_films_id.indexOf(film.id);
-                if (itemPos < 0) {
-                    this.selected_films.push(film);
-                    this.selected_films_id.push(film.id);
-                    btn.text = "-";
-                }
-                else {
-                    this.selected_films.splice(itemPos, 1)
-                    this.selected_films_id.splice(itemPos, 1)
-                    btn.text = "+";
-                }
-            },
-            saveList(){
-                localStorage.list=JSON.stringify(this.selected_films_id)
-            },
-            getLink(){
-                alert(location.href.split('#')[0]+'#'+this.selected_films_id.join('&'))
+            })
+        }
+    },
+    created() {
+        this.fetchData();
+    },
+    methods: {
+        fetchData(category='popular',search=false) {
+            axios
+                .get(`/api/films/${category}${search ? '?search=1' : ''}`)
+                .then(response => {
+                    this.films = response.data;
+                })
+        },
+        addOrRemoveFilm(film,btn) {
+            let itemPos = this.selected_films_id.indexOf(film.id);
+            if (itemPos < 0) {
+                this.selected_films.push(film);
+                this.selected_films_id.push(film.id);
+                btn.text = "-";
+            }
+            else {
+                this.selected_films.splice(itemPos, 1)
+                this.selected_films_id.splice(itemPos, 1)
+                btn.text = "+";
             }
         },
-    }
+        saveList(){
+            localStorage.list=JSON.stringify(this.selected_films_id)
+        },
+        getLink(){
+            alert(location.href.split('#')[0]+'#'+this.selected_films_id.join('&'))
+        }
+    },
+}
 </script>

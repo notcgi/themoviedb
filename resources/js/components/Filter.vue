@@ -16,12 +16,12 @@
 </template>
 
 <script>
-    export default {
-        data () {
-            return {
-                selected: 'popular',
-                message: '',
-            }
+export default {
+    data () {
+        return {
+            selected: 'popular',
+            message: '',
         }
     }
+}
 </script>
