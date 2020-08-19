@@ -9,17 +9,17 @@
                 </div>
             </div>
         </div>
-        <div v-bind:style="{position: 'fixed',top: '20%',background: 'white',right: (active?0:-180)+'px'}">
-            <span @click="active=!active">list</span>
-            <ul style="display: block; width:200px; overflow-y:scroll;height:500px;">
+        <div v-bind:style="{position: 'fixed',top: '0',background: (active?'white':'transparent'),right: '0'}">
+            <span @click="active=!active" style="font-size:2.5rem;cursor: pointer;padding: 0.4rem;text-align: right;display: block;float: right;">༶</span>
+            <ul v-bind:style="{display: (active?'block':'none'), width:'200px', 'overflow-y':'scroll',height:'100vh'}">
+                <a @click="saveList" class="btn btn-primary" href="#">Save</a>
+                <a @click="getLink" class="btn btn-primary" href="#">Share</a>
                 <li v-for="(film, index) in selected_films">
                     <span>#{{++index}} {{ film.title }} ({{film.release_date}}) pop: {{film.popularity}}</span>
                     <img :src="film.poster_path?'https://image.tmdb.org/t/p/w500'+film.poster_path:''" class="card-img-top">
                     <span>{{film.overview}}</span>
                 </li>
             </ul>
-            <a @click="saveList" class="btn btn-primary" href="#">Save</a>
-            <a @click="getLink" class="btn btn-primary" href="#">Share</a>
 
         </div>
     </div>

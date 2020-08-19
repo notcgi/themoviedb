@@ -37665,82 +37665,92 @@ var render = function() {
       {
         style: {
           position: "fixed",
-          top: "20%",
-          background: "white",
-          right: (_vm.active ? 0 : -180) + "px"
+          top: "0",
+          background: _vm.active ? "white" : "transparent",
+          right: "0"
         }
       },
       [
         _c(
           "span",
           {
+            staticStyle: {
+              "font-size": "2.5rem",
+              cursor: "pointer",
+              padding: "0.4rem",
+              "text-align": "right",
+              display: "block",
+              float: "right"
+            },
             on: {
               click: function($event) {
                 _vm.active = !_vm.active
               }
             }
           },
-          [_vm._v("list")]
+          [_vm._v("༶")]
         ),
         _vm._v(" "),
         _c(
           "ul",
           {
-            staticStyle: {
-              display: "block",
+            style: {
+              display: _vm.active ? "block" : "none",
               width: "200px",
               "overflow-y": "scroll",
-              height: "500px"
+              height: "100vh"
             }
           },
-          _vm._l(_vm.selected_films, function(film, index) {
-            return _c("li", [
-              _c("span", [
-                _vm._v(
-                  "#" +
-                    _vm._s(++index) +
-                    " " +
-                    _vm._s(film.title) +
-                    " (" +
-                    _vm._s(film.release_date) +
-                    ") pop: " +
-                    _vm._s(film.popularity)
-                )
-              ]),
-              _vm._v(" "),
-              _c("img", {
-                staticClass: "card-img-top",
-                attrs: {
-                  src: film.poster_path
-                    ? "https://image.tmdb.org/t/p/w500" + film.poster_path
-                    : ""
-                }
-              }),
-              _vm._v(" "),
-              _c("span", [_vm._v(_vm._s(film.overview))])
-            ])
-          }),
-          0
-        ),
-        _vm._v(" "),
-        _c(
-          "a",
-          {
-            staticClass: "btn btn-primary",
-            attrs: { href: "#" },
-            on: { click: _vm.saveList }
-          },
-          [_vm._v("Save")]
-        ),
-        _vm._v(" "),
-        _c(
-          "a",
-          {
-            staticClass: "btn btn-primary",
-            attrs: { href: "#" },
-            on: { click: _vm.getLink }
-          },
-          [_vm._v("Share")]
+          [
+            _c(
+              "a",
+              {
+                staticClass: "btn btn-primary",
+                attrs: { href: "#" },
+                on: { click: _vm.saveList }
+              },
+              [_vm._v("Save")]
+            ),
+            _vm._v(" "),
+            _c(
+              "a",
+              {
+                staticClass: "btn btn-primary",
+                attrs: { href: "#" },
+                on: { click: _vm.getLink }
+              },
+              [_vm._v("Share")]
+            ),
+            _vm._v(" "),
+            _vm._l(_vm.selected_films, function(film, index) {
+              return _c("li", [
+                _c("span", [
+                  _vm._v(
+                    "#" +
+                      _vm._s(++index) +
+                      " " +
+                      _vm._s(film.title) +
+                      " (" +
+                      _vm._s(film.release_date) +
+                      ") pop: " +
+                      _vm._s(film.popularity)
+                  )
+                ]),
+                _vm._v(" "),
+                _c("img", {
+                  staticClass: "card-img-top",
+                  attrs: {
+                    src: film.poster_path
+                      ? "https://image.tmdb.org/t/p/w500" + film.poster_path
+                      : ""
+                  }
+                }),
+                _vm._v(" "),
+                _c("span", [_vm._v(_vm._s(film.overview))])
+              ])
+            })
+          ],
+          2
         )
       ]
     )
