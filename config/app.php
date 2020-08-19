@@ -15,6 +15,7 @@ return [
 
     'name' => env('APP_NAME', 'Laravel'),
 
+    'tmdb_api'=>env('TMDB_API_KEY'),
     /*
     |--------------------------------------------------------------------------
     | Application Environment
