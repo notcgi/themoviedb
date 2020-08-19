@@ -1935,7 +1935,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -37632,11 +37631,9 @@ var render = function() {
           _vm._v(" "),
           _c("div", { staticClass: "card-body" }, [
             _c("h5", { staticClass: "card-title" }, [
-              _vm._v(_vm._s(film.title))
-            ]),
-            _vm._v(" "),
-            _c("p", { staticClass: "card-text" }, [
-              _vm._v(_vm._s(film.release_date))
+              _vm._v(
+                _vm._s(film.title) + " (" + _vm._s(film.release_date) + ")"
+              )
             ]),
             _vm._v(" "),
             _c(
@@ -37704,7 +37701,9 @@ var render = function() {
                     _vm._s(++index) +
                     " " +
                     _vm._s(film.title) +
-                    " pop: " +
+                    " (" +
+                    _vm._s(film.release_date) +
+                    ") pop: " +
                     _vm._s(film.popularity)
                 )
               ]),

@@ -4,8 +4,7 @@
             <div :id="film.id" class="card" v-for="film in films">
                 <img :src="film.poster_path?'https://image.tmdb.org/t/p/w500'+film.poster_path:''" class="card-img-top">
                 <div class="card-body">
-                    <h5 class="card-title">{{ film.title }}</h5>
-                    <p class="card-text">{{ film.release_date }}</p>
+                    <h5 class="card-title">{{ film.title }} ({{film.release_date}})</h5>
                     <a @click="addOrRemoveFilm(film,$event.target)" class="btn w-100 btn-primary" href="#" v-text="(selected_films_id.indexOf(film.id)<0)?'+':'-'">+</a>
                 </div>
             </div>
@@ -14,7 +13,7 @@
             <span @click="active=!active">list</span>
             <ul style="display: block; width:200px; overflow-y:scroll;height:500px;">
                 <li v-for="(film, index) in selected_films">
-                    <span>#{{++index}} {{ film.title }} pop: {{film.popularity}}</span>
+                    <span>#{{++index}} {{ film.title }} ({{film.release_date}}) pop: {{film.popularity}}</span>
                     <img :src="film.poster_path?'https://image.tmdb.org/t/p/w500'+film.poster_path:''" class="card-img-top">
                     <span>{{film.overview}}</span>
                 </li>
